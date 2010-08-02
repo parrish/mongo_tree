@@ -5,13 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "mongo_tree"
-    gem.summary = %Q{A MongoMapper plugin that adds a number of tree strategies}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{A MongoMapper plugin that adds a number of tree strategies.}
+    gem.description = %Q{A MongoMapper plugin that adds a number of tree strategies.}
     gem.email = "mtparrish@gmail.com"
     gem.homepage = "http://github.com/parrish/mongo_tree"
     gem.authors = ["Michael Parrish"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_dependency "mongo_mapper", ">= 0.8.2"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
