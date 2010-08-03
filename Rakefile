@@ -12,6 +12,7 @@ begin
     gem.authors = ["Michael Parrish"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
     gem.add_dependency "mongo_mapper", ">= 0.8.2"
+    gem.files = Dir.glob("{lib,test}/**/*") + %w[LICENSE README.markdown]
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError

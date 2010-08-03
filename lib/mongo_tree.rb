@@ -1,5 +1,18 @@
+require 'mongo_mapper'
+require 'active_support/all'
+
 module MongoTree
   autoload :Children, 'mongo_tree/children'
+  autoload :Base,     'mongo_tree/base'
+  
+  module Strategies
+    autoload :FullTreeRoot,       'mongo_tree/strategies/full_tree_root'
+    autoload :FullTreeNode,       'mongo_tree/strategies/full_tree_node'
+    autoload :ChildLink,          'mongo_tree/strategies/child_link'
+    autoload :ParentLink,         'mongo_tree/strategies/parent_link'
+    autoload :AncestorArray,      'mongo_tree/strategies/ancestor_array'
+    autoload :MaterializedPath,   'mongo_tree/strategies/materialized_path'
+  end
   
   module ClassMethods
     def acts_as_tree(strategy, options = {})
@@ -27,15 +40,6 @@ module MongoTree
         self.send :include, MongoTree::Strategies::ParentLink
       end
     end
-  end
-  
-  module Strategies
-    autoload :FullTreeRoot,       'mongo_tree/strategies/full_tree_root'
-    autoload :FullTreeNode,       'mongo_tree/strategies/full_tree_node'
-    autoload :ChildLink,          'mongo_tree/strategies/child_link'
-    autoload :ParentLink,         'mongo_tree/strategies/parent_link'
-    autoload :AncestorArray,      'mongo_tree/strategies/ancestor_array'
-    autoload :MaterializedPath,   'mongo_tree/strategies/materialized_path'
   end
 end
 
